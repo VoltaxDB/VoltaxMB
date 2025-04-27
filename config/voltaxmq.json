@@ -1,0 +1,27 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 5672,
+        "http_port": 8080
+    },
+    "persistence": {
+        "enabled": true,
+        "data_dir": "./data",
+        "aof_enabled": true,
+        "snapshot_interval": "1h"
+    },
+    "queue": {
+        "max_size": 1000000,
+        "default_retention": "24h",
+        "max_message_size": 1048576
+    },
+    "security": {
+        "tls_enabled": false,
+        "cert_file": "",
+        "key_file": ""
+    },
+    "metrics": {
+        "enabled": true,
+        "port": 9090
+    }
+} 

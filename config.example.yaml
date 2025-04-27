@@ -1,0 +1,31 @@
+# VoltaxMB Configuration File
+
+# Server settings
+host: "0.0.0.0"              # Host address to bind to
+port: 9090                   # Port to listen on
+max_connections: 1000        # Maximum number of concurrent connections
+read_timeout: 30            # Read timeout in seconds
+write_timeout: 30           # Write timeout in seconds
+
+# Storage settings
+data_dir: "./data"          # Directory to store message data
+enable_aof: true           # Enable Append-Only File for durability
+aof_sync_interval: 1000    # AOF sync interval in milliseconds
+snapshot_interval: 3600    # Snapshot interval in seconds
+
+# Message settings
+max_message_size: 1048576  # Maximum message size in bytes (1MB)
+retention_time: 604800     # Message retention time in seconds (7 days)
+max_partitions: 32        # Maximum number of partitions per topic
+replica_factor: 1         # Number of replicas for each partition
+
+# Security settings
+enable_auth: false        # Enable authentication
+jwt_secret: ""           # JWT secret for authentication (required if enable_auth is true)
+tls_enabled: false       # Enable TLS
+tls_cert_file: ""        # Path to TLS certificate file
+tls_key_file: ""         # Path to TLS private key file
+
+# Metrics settings
+enable_metrics: true     # Enable Prometheus metrics
+metrics_port: 9091      # Port for metrics endpoint 

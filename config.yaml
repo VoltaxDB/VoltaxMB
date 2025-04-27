@@ -1,0 +1,42 @@
+# VoltaxMB Configuration File
+
+server:
+  host: "localhost"           # Host address to bind to
+  port: 9090                 # TCP port for binary protocol
+  http_port: 8080           # HTTP port for REST API
+  max_connections: 1000     # Maximum number of concurrent connections
+  read_timeout: 30         # Read timeout in seconds
+  write_timeout: 30        # Write timeout in seconds
+
+persistence:
+  data_dir: "data"         # Directory to store message data
+  aof_enabled: true        # Enable Append-Only File for durability
+  aof_sync_interval: "1s"  # AOF sync interval in seconds
+  snapshot_interval: "5m"  # Snapshot interval in minutes
+
+message:
+  max_size: 1048576       # Maximum message size in bytes (1MB)
+  retention_time: 604800  # Message retention time in seconds (7 days)
+  max_partitions: 32      # Maximum number of partitions per topic
+  replica_factor: 1       # Number of replicas for each partition
+  dlq_enabled: true      # Enable Dead Letter Queue
+  dlq_max_retries: 3     # Maximum number of retries before moving to DLQ
+  dlq_retention: 259200  # DLQ message retention in seconds (3 days)
+
+scheduler:
+  enabled: true          # Enable message scheduling
+  tick_interval: "1s"    # Scheduler tick interval
+  max_delay: 2592000    # Maximum delay in seconds (30 days)
+  queue_size: 10000     # Maximum number of scheduled messages
+
+security:
+  enable_auth: false     # Enable authentication
+  jwt_secret: ""        # JWT secret for authentication
+  tls_enabled: false    # Enable TLS
+  tls_cert_file: ""     # Path to TLS certificate file
+  tls_key_file: ""      # Path to TLS private key file
+
+metrics:
+  enabled: true         # Enable Prometheus metrics
+  port: 9091           # Port for metrics endpoint
+  collection_interval: "15s"  # Metrics collection interval 
